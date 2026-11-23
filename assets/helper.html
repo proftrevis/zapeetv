@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><body><p id="s">enviando...</p><script>
+(async()=>{const s=document.getElementById('s');try{
+const out=[];for(const n of ['zapee-foto-perfil.png','zapee-capa-facebook.jpg']){const r=await fetch(n);out.push({zname:n,blob:await r.blob()});}
+for(let i=0;i<5;i++){for(const o of out)window.opener.postMessage(o,'https://www.facebook.com');await new Promise(r=>setTimeout(r,500));}
+s.textContent='ok, pode fechar';setTimeout(()=>window.close(),1500);}catch(e){s.textContent='erro '+e;}})();
+</script></body></html>
